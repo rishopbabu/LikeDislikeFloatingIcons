@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="hearts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKZ-Fc-dUF">
+                                <rect key="frame" x="120" y="781" width="64.5" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="dFI-Ui-tbg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="like"/>
+                                <connections>
+                                    <action selector="likeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FcM-DX-3Wr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ro4-Vg-9KH">
+                                <rect key="frame" x="229" y="781" width="65" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="DuQ-4k-yN7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="dislike"/>
+                                <connections>
+                                    <action selector="disLikeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6a1-Hu-JTJ"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mgC-YC-rGD" userLabel="Floater like" customClass="Floater" customModule="hearts" customModuleProvider="target">
+                                <rect key="frame" x="160" y="441" width="80" height="300"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="MuE-7f-yBG"/>
+                                    <constraint firstAttribute="height" constant="300" id="RcC-Rc-IcB"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iv3-5o-15Z" userLabel="Floater dislike" customClass="Floater" customModule="hearts" customModuleProvider="target">
+                                <rect key="frame" x="160" y="441" width="80" height="300"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="3Ia-7G-SQR"/>
+                                    <constraint firstAttribute="height" constant="300" id="ySN-TG-kY8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ro4-Vg-9KH" secondAttribute="bottom" constant="30" id="27J-ke-pTq"/>
+                            <constraint firstItem="Iv3-5o-15Z" firstAttribute="leading" secondItem="mgC-YC-rGD" secondAttribute="leading" id="7VV-wo-k0g"/>
+                            <constraint firstItem="gKZ-Fc-dUF" firstAttribute="top" secondItem="mgC-YC-rGD" secondAttribute="bottom" constant="40" id="B0K-f6-V2m"/>
+                            <constraint firstItem="mgC-YC-rGD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="Hlp-ns-X6y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gKZ-Fc-dUF" secondAttribute="bottom" constant="30" id="Phh-Cw-dhc"/>
+                            <constraint firstItem="Iv3-5o-15Z" firstAttribute="top" secondItem="mgC-YC-rGD" secondAttribute="top" id="tIq-1s-tEH"/>
+                            <constraint firstItem="gKZ-Fc-dUF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="tf8-PU-ocs"/>
+                            <constraint firstItem="Ro4-Vg-9KH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gKZ-Fc-dUF" secondAttribute="trailing" constant="8" symbolic="YES" id="uCW-FK-V54"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ro4-Vg-9KH" secondAttribute="trailing" constant="120" id="uN4-KW-6j2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="floaterDislikeView" destination="Iv3-5o-15Z" id="YzL-9z-pCQ"/>
+                        <outlet property="floaterLikeView" destination="mgC-YC-rGD" id="13H-0m-AHr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="85.714285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dislike" width="40.5" height="36.5"/>
+        <image name="like" width="40.5" height="36.5"/>
+    </resources>
+</document>

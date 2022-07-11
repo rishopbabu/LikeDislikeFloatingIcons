@@ -14,8 +14,6 @@
 		6A4B4F8F286D8F79005E3F07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A4B4F8E286D8F79005E3F07 /* Assets.xcassets */; };
 		6A4B4F92286D8F79005E3F07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A4B4F90286D8F79005E3F07 /* LaunchScreen.storyboard */; };
 		6A4B4F9A286D9054005E3F07 /* Floater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4B4F99286D9054005E3F07 /* Floater.swift */; };
-		6AF19FBA2872E7A30018438F /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF19FB82872E7A30018438F /* like.png */; };
-		6AF19FBB2872E7A30018438F /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF19FB92872E7A30018438F /* dislike.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +26,6 @@
 		6A4B4F91286D8F79005E3F07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A4B4F93286D8F79005E3F07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A4B4F99286D9054005E3F07 /* Floater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floater.swift; sourceTree = "<group>"; };
-		6AF19FB82872E7A30018438F /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = "../../../Downloads/like and dislike icon 2/like.png"; sourceTree = "<group>"; };
-		6AF19FB92872E7A30018438F /* dislike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dislike.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +66,6 @@
 				6A4B4F8E286D8F79005E3F07 /* Assets.xcassets */,
 				6A4B4F90286D8F79005E3F07 /* LaunchScreen.storyboard */,
 				6A4B4F93286D8F79005E3F07 /* Info.plist */,
-				6AF19FB92872E7A30018438F /* dislike.png */,
-				6AF19FB82872E7A30018438F /* like.png */,
 			);
 			path = hearts;
 			sourceTree = "<group>";
@@ -134,9 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AF19FBA2872E7A30018438F /* like.png in Resources */,
 				6A4B4F92286D8F79005E3F07 /* LaunchScreen.storyboard in Resources */,
-				6AF19FBB2872E7A30018438F /* dislike.png in Resources */,
 				6A4B4F8F286D8F79005E3F07 /* Assets.xcassets in Resources */,
 				6A4B4F8D286D8F77005E3F07 /* Main.storyboard in Resources */,
 			);

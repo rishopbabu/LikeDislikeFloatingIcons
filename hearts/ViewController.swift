@@ -22,14 +22,14 @@ class ViewController: UIViewController {
     
     func startEndLikeAnimation() {
         floaterLikeView.startAnimation()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             self.floaterLikeView.stopAnimation()
         })
     }
     
     func startEndDisLikeAnimation() {
         floaterDislikeView.startAnimation()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             self.floaterDislikeView.stopAnimation()
         })
     }

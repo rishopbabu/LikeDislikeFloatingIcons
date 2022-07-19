@@ -1,16 +1,15 @@
 //
-//  Floater.swift
-//  hearts
+//  LikeDislikeFloater.swift
+//  FanaticTV
 //
-//  Created by MAC-OBS-26 on 30/06/22.
+//  Created by MAC-OBS-26 on 08/07/22.
+//  Copyright © 2022 fanaticTV. All rights reserved.
 //
 
 import UIKit
 
-
-
 @IBDesignable public class Floater: UIView {
-    
+        
     var image1: UIImage?
     var image2: UIImage?
     var image3: UIImage?
@@ -22,13 +21,13 @@ import UIKit
     var duration1: TimeInterval = 2.0
     var duration2: TimeInterval = 2.0
     var floatieSize = CGSize(width: 50, height: 50)
-    var floatieDelay: Double = 0.7
+    var floatieDelay: Double = 0.5
     var delay: Double = 1.0
     var startingAlpha: CGFloat = 1.0
     var endingAlpha: CGFloat = 0.0
     var upwards: Bool = true
     var remove: Bool = true
-        
+    
     @IBInspectable var removeAtEnd: Bool = true {
         didSet {
             remove = removeAtEnd
@@ -49,7 +48,7 @@ import UIKit
             endingAlpha = alphaAtEnd
         }
     }
-    @IBInspectable var rotationSpeed: Double = 50 {
+    @IBInspectable var rotationSpeed: Double = 10 {
         didSet {
             duration2 = 20 / rotationSpeed
         }
@@ -128,100 +127,56 @@ import UIKit
     }
     
     func startAnimation() {
+        let frameW = self.frame.width
+        let frameH = self.frame.height
+        var startingPoint: CGFloat!
+        var endingPoint: CGFloat!
         
-        if !isAnimating {
-            print("Start Animating")
-            isAnimating = true
-            views = []
-            var imagesArray = [UIImage?]()
-            var actualImages = [UIImage]()
-            let frameW = self.frame.width
-            let frameH = self.frame.height
-            var startingPoint: CGFloat!
-            var endingPoint: CGFloat!
-            if upwards {
-                startingPoint = frameH
-                endingPoint = floatieHeight*2
-            } else {
-                startingPoint = 0
-                endingPoint = frameH - floatieHeight*2
-            }
-            
-            imagesArray += [image4, image3, image2, image1]
-            
-            print(imagesArray)
-            if !imagesArray.isEmpty {
-                for i in imagesArray {
-                    if i != nil {
-                        print(i)
-                        actualImages.append(i!)
-                    }
-                }
-            }
-            
-            DispatchQueue.global(qos: .background).async {
-                var next = true
-                while self.isAnimating {
-                    if next {
-                        next = false
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + self.floatieDelay) {
-                            let randomNumber = self.randomIntBetweenNumbers(firstNum: 1, secondNum: 2)
-                            var randomRotation: CGFloat!
-                            if randomNumber == 1 {
-                                randomRotation = -1
-                            } else {
-                                randomRotation = 1
-                            }
-                            let randomX = self.randomFloatBetweenNumbers(firstNum: 0 + self.floatieSize.width/2, secondNum: self.frame.width - self.floatieSize.width/2)
-                            let floatieView = UIView(frame: CGRect(x: randomX, y: startingPoint, width: 50, height: 50))
-                            self.addSubview(floatieView)
-                            
-                            let floatie = UIImageView(frame: CGRect(x: 0, y: 0, width: self.floatieSize.width, height: self.floatieSize.height))
-                            print("@@@@@ \(floatie) @@@@@")
-                            
-                            if !actualImages.isEmpty {
-                                print("Actual images:  \(actualImages)")
-                                let randomImageIndex = (self.randomIntBetweenNumbers(firstNum: 1, secondNum: actualImages.count) - 1 )
-                                floatie.image = actualImages[randomImageIndex]
-                                floatie.center = CGPoint(x: 0, y: 0)
-                                floatie.backgroundColor = UIColor.clear
-                                floatie.layer.zPosition = 10
-                                floatie.alpha = self.startingAlpha
-                                
-                                floatieView.addSubview(floatie)
-                                var xChange: CGFloat!
-                                if randomX < self.frame.width/2 {
-                                    xChange = randomX + self.randomFloatBetweenNumbers(firstNum: randomX, secondNum: frameW-randomX)
-                                } else {
-                                    xChange = self.randomFloatBetweenNumbers(firstNum: self.floatieSize.width*2, secondNum: randomX)
-                                }
-                                self.views.append(floatieView)
-                                UIView.animate(withDuration: self.duration, delay: 0,
-                                               options: [], animations: {
-                                    floatieView.center.y = endingPoint
-                                    floatie.alpha = self.endingAlpha
-                                    next = true
-                                }, completion: {(value: Bool) in
-                                    if self.remove {
-                                        floatieView.removeFromSuperview()
-                                    }
-                                })
-                                UIView.animate(withDuration: self.duration1, delay: 0,
-                                               options: [.repeat, .autoreverse], animations: {
-                                    floatieView.center.x = xChange
-                                }, completion: nil)
-                                UIView.animate(withDuration: self.duration2, delay: 0, options: [.repeat, .autoreverse], animations: {floatieView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2)*randomRotation)
-                                }, completion: nil)
-                                
-                            }
-                        }
-                    }
-                }
-            }
+        if upwards {
+            startingPoint = frameH
+            endingPoint = floatieHeight*2
         } else {
-            print("Already Animating")
+            startingPoint = 0
+            endingPoint = frameH - floatieHeight*2
         }
+        let randomX = self.randomFloatBetweenNumbers(firstNum: 0 + self.floatieSize.width/2, secondNum: self.frame.width - self.floatieSize.width/2)
+        let floatieView = UIView(frame: CGRect(x: 10, y: startingPoint, width: 50, height: 50))
+        self.addSubview(floatieView)
+        let floatie = UIImageView(frame: CGRect(x: 0, y: 0, width: self.floatieSize.width, height: self.floatieSize.height))
+        floatie.image = image1
+        floatieView.addSubview(floatie)
+        
+        UIView.animate(withDuration: self.duration, delay: 0,
+                       options: [], animations: {
+            floatieView.center.y = endingPoint
+            floatie.alpha = self.endingAlpha
+        }, completion: {(value: Bool) in
+            if self.remove {
+                floatieView.removeFromSuperview()
+            }
+        })
+        let randomNumber = self.randomIntBetweenNumbers(firstNum: 1, secondNum: 2)
+        var randomRotation: CGFloat!
+        if randomNumber == 1 {
+            randomRotation = -1
+        } else {
+            randomRotation = 1
+        }
+        
+        var xChange: CGFloat!
+        if randomX < self.frame.width/2 {
+            xChange = randomX + self.randomFloatBetweenNumbers(firstNum: randomX, secondNum: frameW-randomX)
+        } else {
+            xChange = self.randomFloatBetweenNumbers(firstNum: self.floatieSize.width*2, secondNum: randomX)
+        }
+        
+        UIView.animate(withDuration: self.duration1, delay: 0,
+                       options: [.repeat, .autoreverse], animations: {
+            floatieView.center.x = xChange
+        }, completion: nil)
+        UIView.animate(withDuration: self.duration2, delay: 0, options: [.repeat, .autoreverse], animations: {floatieView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2) * randomRotation)
+        }, completion: nil)
+        
     }
     
     func stopAnimation() {
@@ -245,4 +200,3 @@ import UIKit
     
     
 }
-

@@ -44,6 +44,12 @@
                                     <constraint firstAttribute="width" constant="80" id="MuE-7f-yBG"/>
                                     <constraint firstAttribute="height" constant="300" id="RcC-Rc-IcB"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="removeAtEnd" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iv3-5o-15Z" userLabel="Floater dislike" customClass="Floater" customModule="hearts" customModuleProvider="target">
                                 <rect key="frame" x="160" y="441" width="80" height="300"/>
@@ -52,10 +58,15 @@
                                     <constraint firstAttribute="width" constant="80" id="3Ia-7G-SQR"/>
                                     <constraint firstAttribute="height" constant="300" id="ySN-TG-kY8"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" systemColor="systemRedColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ro4-Vg-9KH" secondAttribute="bottom" constant="30" id="27J-ke-pTq"/>
                             <constraint firstItem="Iv3-5o-15Z" firstAttribute="leading" secondItem="mgC-YC-rGD" secondAttribute="leading" id="7VV-wo-k0g"/>
@@ -81,5 +92,8 @@
     <resources>
         <image name="dislike" width="40.5" height="36.5"/>
         <image name="like" width="40.5" height="36.5"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

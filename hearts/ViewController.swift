@@ -22,16 +22,10 @@ class ViewController: UIViewController {
     
     func startEndLikeAnimation() {
         floaterLikeView.startAnimation()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-            self.floaterLikeView.stopAnimation()
-        })
     }
     
     func startEndDisLikeAnimation() {
-        floaterDislikeView.startAnimation()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-            self.floaterDislikeView.stopAnimation()
-        })
+        floaterLikeView.startAnimation()
     }
 
     @IBAction func likeButton(_ sender: Any) {
@@ -42,11 +36,11 @@ class ViewController: UIViewController {
         startEndLikeAnimation()
     }
     @IBAction func disLikeButton(_ sender: Any) {
-        floaterDislikeView.image1 = UIImage(named: "dislike")
-        floaterDislikeView.image2 = UIImage(named: "dislike")
-        floaterDislikeView.image3 = UIImage(named: "dislike")
-        floaterDislikeView.image4 = UIImage(named: "dislike")
-        startEndDisLikeAnimation()
+        floaterLikeView.image1 = UIImage(named: "dislike")
+        floaterLikeView.image2 = UIImage(named: "dislike")
+        floaterLikeView.image3 = UIImage(named: "dislike")
+        floaterLikeView.image4 = UIImage(named: "dislike")
+        startEndLikeAnimation()
     }
     
 }

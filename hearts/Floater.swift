@@ -131,13 +131,13 @@ import UIKit
         let frameH = self.frame.height
         var startingPoint: CGFloat!
         var endingPoint: CGFloat!
-        
+
         if upwards {
-            startingPoint = frameH
-            endingPoint = floatieHeight*2
+                startingPoint = frameH
+                endingPoint = floatieHeight*2
         } else {
-            startingPoint = 0
-            endingPoint = frameH - floatieHeight*2
+                startingPoint = 0
+                endingPoint = frameH - floatieHeight*2
         }
         let randomX = self.randomFloatBetweenNumbers(firstNum: 0 + self.floatieSize.width/2, secondNum: self.frame.width - self.floatieSize.width/2)
         let floatieView = UIView(frame: CGRect(x: 10, y: startingPoint, width: 50, height: 50))
@@ -147,7 +147,7 @@ import UIKit
         floatieView.addSubview(floatie)
         
         UIView.animate(withDuration: self.duration, delay: 0,
-                       options: [], animations: {
+                                     options: [], animations: {
             floatieView.center.y = endingPoint
             floatie.alpha = self.endingAlpha
         }, completion: {(value: Bool) in
@@ -158,9 +158,9 @@ import UIKit
         let randomNumber = self.randomIntBetweenNumbers(firstNum: 1, secondNum: 2)
         var randomRotation: CGFloat!
         if randomNumber == 1 {
-            randomRotation = -1
+                randomRotation = -1
         } else {
-            randomRotation = 1
+                randomRotation = 1
         }
         
         var xChange: CGFloat!
@@ -171,7 +171,7 @@ import UIKit
         }
         
         UIView.animate(withDuration: self.duration1, delay: 0,
-                       options: [.repeat, .autoreverse], animations: {
+                                     options: [.repeat, .autoreverse], animations: {
             floatieView.center.x = xChange
         }, completion: nil)
         UIView.animate(withDuration: self.duration2, delay: 0, options: [.repeat, .autoreverse], animations: {floatieView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2) * randomRotation)
